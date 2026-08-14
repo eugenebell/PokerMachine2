@@ -1,0 +1,2 @@
+rootProject.name = "PokerMachine2"
+include ':app'

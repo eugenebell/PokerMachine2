@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<color name="gold">#C1A004</color>
+<color name="blue_poker_table">#0000CD</color>
+<color name="light_blue">#87CEFA</color>
+<color name="yellow">#FFFF00</color>
+<color name="red_border">#CC0000</color>
+<color name="red_result_1">#BB0000</color>
+<color name="red_result_2">#AA0000</color>
+<color name="red_result_3">#990000</color>
+<color name="red_result_4">#880000</color>
+<color name="red_result_5">#770000</color>
+<color name="grey_transparent">#88808080</color>
+</resources>

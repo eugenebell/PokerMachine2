@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+<TextView android:id="@+id/textViewId1"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Debug Scratch Pad"
+/>
+<Button
+android:id="@+id/startFAButtonId"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:text="Start Animation"
+/>
+<RelativeLayout android:id="@+id/RelativeLayout02" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+<ImageView android:id="@+id/animationImage1" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+<ImageView android:layout_toRightOf="@+id/animationImage1" android:id="@+id/animationImage2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+<ImageView android:layout_toRightOf="@+id/animationImage2" android:id="@+id/animationImage3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+<ImageView android:layout_toRightOf="@+id/animationImage3" android:id="@+id/animationImage4" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</RelativeLayout>
+</LinearLayout>

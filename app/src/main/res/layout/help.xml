@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/LinearLayoutHelp" android:scrollbars="vertical" android:scrollbarAlwaysDrawHorizontalTrack="true">
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TextViewHelp" android:text="@string/help_text"></TextView>
+
+
+</LinearLayout>
