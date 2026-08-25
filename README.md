@@ -49,6 +49,37 @@ PokerMachine2/
 └── settings.gradle
 ```
 
+## Build & Run in Android Studio
+
+### Prerequisites
+* Android Studio Hedgehog or newer
+* JDK 17+
+* Android SDK Platform 34
+
+### Open project
+1. Android Studio → **File → Open** → `C:\Users\Eugen\Harry_Workspace\git\PokerMachine2`
+2. Accept Gradle sync when prompted. Studio will download Gradle 8.4 and Android Gradle Plugin 8.2.0 automatically.
+3. Wait for “Gradle sync finished”.
+
+### Create an emulator
+1. Tools → **Device Manager** → **Create Virtual Device**
+2. Choose **Pixel 7** → **API 34** (Android 14) → **Next**
+3. Finish and start the AVD.
+
+### Build & Run
+* Click the green **Run ▶** button, select the AVD, or use:
+  ```
+  ./gradlew assembleDebug
+  ```
+* The app installs on the emulator and launches `VideoPoker` → SplashScreen → MainMenu.
+
+### Command line
+With an Android SDK installed:
+```bash
+./gradlew assembleDebug
+adb install -r app/build/outputs/apk/debug/app-debug.apk
+```
+
 ## Build
 
 Open in Android Studio or run:

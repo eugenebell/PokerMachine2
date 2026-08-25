@@ -5,18 +5,19 @@
       android:versionName="2.0">
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".VideoPoker"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    	<activity android:label="@string/mainmenu" android:name=".MainMenu"/>
-    	<activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:label="@string/main" android:name=".SplashScreen"/>
-    	<activity android:label="@string/about" android:name=".About"/>
-    	<activity android:label="@string/help" android:name=".Help"/>
-    	<activity android:label="@string/highscore" android:name=".HighScore"/>
-    	<activity android:label="@string/play" android:name=".Play"/>
+    	<activity android:label="@string/mainmenu" android:name=".MainMenu" android:exported="false"/>
+    	<activity android:theme="@android:style/Theme.NoTitleBar.Fullscreen" android:label="@string/main" android:name=".SplashScreen" android:exported="false"/>
+    	<activity android:label="@string/about" android:name=".About" android:exported="false"/>
+    	<activity android:label="@string/help" android:name=".Help" android:exported="false"/>
+    	<activity android:label="@string/highscore" android:name=".HighScore" android:exported="false"/>
+    	<activity android:label="@string/play" android:name=".Play" android:exported="false"/>
     </application>
     <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>
 </manifest>

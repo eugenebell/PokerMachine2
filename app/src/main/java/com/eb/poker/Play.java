@@ -298,43 +298,33 @@ public class Play extends Activity {
 	}
 	
 	private void checkHandResult(int result) {
-		switch (result) {
-		case R.string.pair:
+		if (result == R.string.pair) {
 			highPairTextView.setTextColor(getResources().getColor(R.color.yellow));
 			highPairTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.two_pair:
+		} else if (result == R.string.two_pair) {
 			twoPairTextView.setTextColor(getResources().getColor(R.color.yellow));
 			twoPairTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.three_of_a_kind:
+		} else if (result == R.string.three_of_a_kind) {
 			threeOfaKindTextView.setTextColor(getResources().getColor(R.color.yellow));
 			threeOfaKindTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.straight:
+		} else if (result == R.string.straight) {
 			straightTextView.setTextColor(getResources().getColor(R.color.yellow));
 			straightTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.flush:
+		} else if (result == R.string.flush) {
 			flushTextView.setTextColor(getResources().getColor(R.color.yellow));
 			flushTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.full_house:
+		} else if (result == R.string.full_house) {
 			fullHouseTextView.setTextColor(getResources().getColor(R.color.yellow));
 			fullHouseTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.four_of_a_kind:
+		} else if (result == R.string.four_of_a_kind) {
 			fourOfaKindTextView.setTextColor(getResources().getColor(R.color.yellow));
 			fourOfaKindTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.straight_flush:
+		} else if (result == R.string.straight_flush) {
 			straightFlushTextView.setTextColor(getResources().getColor(R.color.yellow));
 			straightFlushTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
-		case R.string.royal_flush:
+		} else if (result == R.string.royal_flush) {
 			royalFlushTextView.setTextColor(getResources().getColor(R.color.yellow));
 			royalFlushTextView.setBackgroundColor(getResources().getColor(R.color.red_result_3));
-			break;
 		}
 	}
 	
