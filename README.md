@@ -52,13 +52,13 @@ PokerMachine2/
 ## Build & Run in Android Studio
 
 ### Prerequisites
-* Android Studio Hedgehog or newer
-* JDK 17+
+* Android Studio Hedgehog or newer (AGP 8.2.0 requires Gradle 8.2–8.7)
+* JDK 21 (see `gradle.properties` `org.gradle.java.home`)
 * Android SDK Platform 34
 
 ### Open project
 1. Android Studio → **File → Open** → `C:\Users\Eugen\Harry_Workspace\git\PokerMachine2`
-2. Accept Gradle sync when prompted. Studio will download Gradle 8.4 and Android Gradle Plugin 8.2.0 automatically.
+2. Accept Gradle sync when prompted. Studio will download Gradle 8.7 and Android Gradle Plugin 8.2.0 automatically.
 3. Wait for “Gradle sync finished”.
 
 ### Create an emulator
@@ -87,6 +87,72 @@ Open in Android Studio or run:
 ```bash
 ./gradlew assembleDebug
 ```
+
+## Release Build & Google Play Upload
+
+### 1. Keystore
+A release keystore already exists at project root:
+`my-release-key.keystore`
+
+`app/build.gradle` signing config points to it:
+```gradle
+signingConfigs {
+    release {
+        storeFile file("../my-release-key.keystore")
+        storePassword "!poker123"
+        keyAlias "pokerkey"
+        keyPassword "!poker123"
+    }
+}
+```
+**Security note:** Do not commit passwords. For production, move passwords to `local.properties` or environment variables and reference them in `build.gradle`.
+
+To create a new keystore if needed:
+```bash
+keytool -genkey -v -keystore my-release-key.keystore -alias pokerkey -keyalg RSA -keysize 2048 -validity 10000
+```
+
+### 2. Build release APK / AAB
+From project root:
+```bash
+./gradlew clean assembleRelease
+```
+Output:
+* APK: `app/build/outputs/apk/release/app-release.apk`
+* AAB: `app/build/outputs/bundle/release/app-release.aab` (if bundle enabled)
+
+Verify signing:
+```bash
+./gradlew signingReport
+```
+
+### 3. Test release build
+```bash
+adb install -r app/build/outputs/apk/release/app-release.apk
+```
+Or open in Android Studio → **Build → Generate Signed Bundle / APK**.
+
+### 4. Google Play Console upload
+1. Go to https://play.google.com/console
+2. Create new app → fill store listing, screenshots, description
+3. **Release → Production** → Create new release
+4. Upload `app-release.aab` (preferred) or `app-release.apk`
+5. Fill release notes, set rollout
+6. Review and roll out
+
+Versioning:
+Increment in `app/build.gradle` before each upload:
+```gradle
+versionCode 2
+versionName "2.1"
+```
+Each Play Store upload requires a higher `versionCode`.
+
+### Gradle notes
+* AGP 8.2.0 requires Gradle 8.2–8.7. Wrapper is pinned to 8.7 in `gradle/wrapper/gradle-wrapper.properties`.
+* `gradle.properties` sets:
+  * `org.gradle.java.home` to JDK 21
+  * `org.gradle.daemon=false` and `org.gradle.configureondemand=false` to avoid configuration mutation issues.
 
 ## License
 
