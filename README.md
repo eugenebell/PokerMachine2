@@ -99,9 +99,9 @@ A release keystore already exists at project root:
 signingConfigs {
     release {
         storeFile file("../my-release-key.keystore")
-        storePassword "!poker123"
-        keyAlias "pokerkey"
-        keyPassword "!poker123"
+        storePassword "<store_password>"
+        keyAlias "<key_alias>"
+        keyPassword "<key_password>"
     }
 }
 ```
